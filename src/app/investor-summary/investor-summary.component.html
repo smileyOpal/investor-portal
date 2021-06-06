@@ -20,7 +20,9 @@
     <!-- graph -->
     <div class="flex-item-left">
       <div>Value Creation {{selectPeriod}}</div>
-      <div></div>
+      <div>
+        <chart type="bar" [data]="valueCreationChartData" [options]="valueCreationChartOptions"></chart>
+      </div>
     </div>
 
     <!-- aggregated view -->

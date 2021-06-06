@@ -10,16 +10,19 @@
     <div class="flex-item-left">
       <div>
         <div class="flex-item-left">Deal allocation (number of assets)</div>
-        <div class="flex-item-right"></div>
       </div>
 
-      <div></div>
+      <div>
+        <chart type="doughnut" [data]="dealAllocationDataChart" [options]="{responsive: true,maintainAspectRatio: false}"></chart>
+      </div>
     </div>
 
     <!-- aggregated view -->
     <div class="flex-item-right">
       <div>Investments by quarter</div>
-      <div></div>
+      <div>
+        <chart type="line" [data]="investmentDataChart" [options]="{}"></chart>
+      </div>
     </div>
   </div>
 

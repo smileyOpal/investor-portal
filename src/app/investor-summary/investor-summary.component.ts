@@ -17,6 +17,22 @@ export class InvestorSummaryComponent implements OnInit {
   investor: Investor | undefined;
   fundEntries: any[] = [];
   aggregatedEntries: any[] = [];
+  valueCreationChartData = {
+    labels: ['Contribution', 'Distribution', 'NAV', 'Total value'],
+    datasets: [
+      {
+        label: 'USD Fund V',
+        data: [50, 20, 70, 100],
+        backgroundColor: ['#1abc9c', '#1abc9c', '#1abc9c', '#1abc9c']
+      },
+      {
+        label: 'USD Fund VI',
+        data: [50, 0, 60, 60],
+        backgroundColor: ['#db8127', '#db8127', '#db8127', '#db8127']
+      }
+    ]
+  }
+  valueCreationChartOptions = {responsive: true, maintainAspectRatio: false}
 
   constructor() {
   }

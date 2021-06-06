@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import { ChartModule } from 'angular2-chartjs';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -26,7 +27,8 @@ import { FundPerformanceComponent } from './fund-performance/fund-performance.co
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
