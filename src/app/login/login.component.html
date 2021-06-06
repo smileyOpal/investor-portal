@@ -1,4 +1,4 @@
-<div class="content" role="main">
+<div class="content" role="main" xmlns="http://www.w3.org/1999/html">
 
   <!-- logo -->
   <div class="card-container">
@@ -8,8 +8,8 @@
   <!-- input section -->
   <div class="card-container">
     <div class="flex-container">
-      <div><input type="email" id="input_email" [(ngModel)]="inputEmail" placeholder="Email"/></div>
-      <div><input type="password" id="input_password" [(ngModel)]="inputPassword" placeholder="Password"/></div>
+      <div><input type="email" id="inputEmail" [(ngModel)]="inputEmail" placeholder="Email"/></div>
+      <div><input type="password" id="inputPassword" [(ngModel)]="inputPassword" placeholder="Password"/></div>
     </div>
   </div>
 
@@ -18,7 +18,12 @@
     <div class="flex-container">
       <div class="flex-item-left"><a>FORGET PASSWORD?</a></div>
       <div class="flex-item-right">
-        <button class="btn btn-primary" [disabled]="!(inputPassword && inputPassword)">LOGIN</button>
+        <input type="button" class="btn btn-primary"
+               routerLink="/funds"
+               routerLinkActive="active"
+               [disabled]="!(inputPassword && inputPassword)"
+               value="LOGIN"
+        />
       </div>
     </div>
   </div>
