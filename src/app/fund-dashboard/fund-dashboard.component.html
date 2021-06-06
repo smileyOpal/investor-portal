@@ -1,1 +1,34 @@
-<p>fund-dashboard works!</p>
+<div class="dashboard-container">
+  <nav class="side-nav" [ngStyle]="{display: (toggleSidebar) ? 'flex': 'none'}">
+    <div class="fund-logo" *ngIf="fund">
+      <img src="{{fund.logoUrl}}"/>
+    </div>
+
+    <div class="fund-menu">
+      <div class="main-menu">
+        Investor Summary
+      </div>
+      <div class="main-menu" *ngIf="fund">
+        Fund performance <span class="glyphicon glyphicon-menu-down"></span>
+        <div class="sub-menu" *ngFor="let module of fund.modules">{{module.name}}</div>
+      </div>
+      <div class="main-menu">
+        Highlighted portfolio <span class="glyphicon glyphicon-menu-down"></span>
+      </div>
+      <div class="main-menu">
+        File Manager <span class="glyphicon glyphicon-menu-down"></span>
+      </div>
+    </div>
+
+  </nav>
+
+  <div class="dashboard-content">
+    <nav class="top-nav">
+      <div>
+        <span class="glyphicon glyphicon-align-justify" (click)="toggleSidebar = !toggleSidebar"></span>
+      </div>
+    </nav>
+  </div>
+
+  <div></div>
+</div>

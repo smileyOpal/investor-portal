@@ -9,7 +9,7 @@ import {Fund} from "./fund";
 })
 export class FundListComponent implements OnInit {
 
-  funds = FUNDS;
+  funds:Fund[] = FUNDS;
 
   constructor() {
   }

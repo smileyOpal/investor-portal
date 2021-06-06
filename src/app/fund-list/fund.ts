@@ -7,5 +7,6 @@ export interface Fund {
 
 export interface FundModule {
   type: string,
+  name: string,
   description: string
 }

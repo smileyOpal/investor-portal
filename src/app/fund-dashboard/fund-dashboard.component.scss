@@ -1,0 +1,52 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+}
+
+nav {
+  border-color:#eee;
+  border-width: 2px;
+  background-color:#fafafa;
+}
+
+nav.side-nav {
+  width: 200px;
+  height: 100%;
+  padding-top: 10px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+
+  .fund-logo img {
+    width: 100px;
+    padding-bottom: 50px;
+  }
+
+  .fund-menu div.main-menu {
+    padding-bottom: 20px;
+
+    span {
+      padding-left: 10px;
+    }
+
+    div.sub-menu {
+      padding-left: 10px;
+      padding-top: 20px;
+    }
+  }
+}
+
+.dashboard-content {
+  flex: auto;
+}
+
+.dashboard-content nav.top-nav {
+  height: 50px;
+  line-height: 50px;
+  color: darkgrey;
+  padding: 0 20px;
+}
+
+.dashboard-content div {
+
+}
