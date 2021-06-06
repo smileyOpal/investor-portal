@@ -1,0 +1,81 @@
+<div class="summary-container">
+  <!-- filter -->
+  <div class="summary-filter-bar">
+    <div class="flex-item-left">Asia Alternative Summary</div>
+    <div class="flex-item-right">
+      <select (ngModel)="selectCurrency">
+        <option>USD</option>
+      </select>
+      <select (ngModel)="selectPeriod">
+        <option>Q1 2021</option>
+        <option>Q2 2021</option>
+        <option>Q3 2021</option>
+        <option>Q4 2021</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- dashboard -->
+  <div class="summary-dashboard-content">
+    <!-- graph -->
+    <div class="flex-item-left">
+      <div>Value Creation {{selectPeriod}}</div>
+      <div></div>
+    </div>
+
+    <!-- aggregated view -->
+    <div class="flex-item-right">
+      <div>Aggregated overview</div>
+      <div>
+        <table class="aggregated-table">
+          <tr>
+            <th>USD</th>
+            <th>2020-12-31</th>
+            <th>2020-03-31</th>
+            <th>QoQ</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- table -->
+  <div class="summary-table-content">
+    <div>Asia Alternatives performance by fund</div>
+    <div>
+      <table class="fund-table">
+        <tr>
+          <th>Fund</th>
+          <th>Investor Entity</th>
+          <th>Commitment</th>
+          <th>Invested</th>
+          <th>Realized</th>
+          <th>Remaining Fair Value</th>
+          <th>Gross Moc</th>
+          <th>Net IRR</th>
+        </tr>
+
+        <tr *ngFor="let entry of fundEntries">
+          <td>{{entry.fund}}</td>
+          <td>{{entry.entity}}</td>
+          <td>{{entry.commitment}}</td>
+          <td>{{entry.invested}}</td>
+          <td>{{entry.realized}}</td>
+          <td>{{entry.fairValue}}</td>
+          <td>{{entry.grossMoc}}x</td>
+          <td>{{entry.netIrr}}%</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

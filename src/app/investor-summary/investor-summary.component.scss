@@ -1,0 +1,127 @@
+.summary-container {
+  margin-left: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+
+  div {
+    align-self: center;
+  }
+}
+
+.summary-filter-bar {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-color: #eee;
+  border-width: 2px;
+  background-color: #fafafa;
+
+  .flex-item-left {
+    flex: 50%;
+    font-weight: bold;
+  }
+
+  .flex-item-right {
+    flex: 50%;
+    text-align: end;
+    align-self: flex-end;
+
+    select {
+      margin-left: 15px;
+      padding: 0 5px;
+    }
+  }
+}
+
+.summary-dashboard-content {
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  div {
+    border-color: #eee;
+    border-width: 2px;
+    background-color: #fafafa;
+    padding: 10px;
+  }
+
+  .flex-item-left {
+    flex: 50%;
+    margin-left: 0px;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: row;
+
+    div:first-child {
+      font-weight: bold;
+    }
+
+    div {
+      width: 100%;
+    }
+  }
+
+  .flex-item-right {
+    flex: 50%;
+    margin-left: 5px;
+
+    div:first-child {
+      font-weight: bold;
+    }
+  }
+}
+
+table.aggregated-table {
+  width: 100%;
+
+  tr th {
+    width: 25%;
+    text-align: center;
+    background-color: #313263;
+    padding: 5px 0px;
+    color: white;
+  }
+}
+
+.summary-table-content {
+  border-color: #eee;
+  border-width: 2px;
+  background-color: #fafafa;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  div:first-child {
+    font-weight: bold;
+  }
+
+  div {
+    width: 100%;
+    padding: 10px 0px;
+  }
+}
+
+table.fund-table {
+  width: 100%;
+
+  tr th {
+    width: 10%;
+    text-align: center;
+    background-color: #313263;
+    padding: 5px 0px;
+    color: white;
+  }
+
+  tr td:nth-child(1), tr td:nth-child(2) {
+    text-align: left;
+  }
+
+  tr td {
+    padding: 5px 0px;
+    text-align: center;
+  }
+}

@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {PageNotfoundComponent} from './page-notfound/page-notfound.component';
 import {CommonModule} from "@angular/common";
 import { FundDashboardComponent } from './fund-dashboard/fund-dashboard.component';
+import { InvestorSummaryComponent } from './investor-summary/investor-summary.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FundDashboardComponent } from './fund-dashboard/fund-dashboard.componen
     LoginComponent,
     FundListComponent,
     PageNotfoundComponent,
-    FundDashboardComponent
+    FundDashboardComponent,
+    InvestorSummaryComponent
   ],
   imports: [
     BrowserModule,

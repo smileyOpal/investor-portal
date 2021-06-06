@@ -12,6 +12,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class FundDashboardComponent implements OnInit {
   fund: Fund | undefined
   toggleSidebar = true
+  subView = 'summary'
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router) {

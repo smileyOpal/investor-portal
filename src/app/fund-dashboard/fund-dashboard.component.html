@@ -4,19 +4,31 @@
       <img src="{{fund.logoUrl}}"/>
     </div>
 
-    <div class="fund-menu">
-      <div class="main-menu">
+    <div class="fund-menu" *ngIf="fund">
+      <div class="main-menu"
+           (click)="subView = 'summary'"
+           [ngStyle]="{ fontWeight: (subView == 'summary') ? 'bold': 'normal'}">
         Investor Summary
       </div>
-      <div class="main-menu" *ngIf="fund">
+      <div class="main-menu">
         Fund performance <span class="glyphicon glyphicon-menu-down"></span>
-        <div class="sub-menu" *ngFor="let module of fund.modules">{{module.name}}</div>
+        <div class="sub-menu"
+             *ngFor="let module of fund.modules"
+             (click)="subView = module.name"
+             [ngStyle]="{ fontWeight: (subView == module.name) ? 'bold': 'normal'}">
+          {{module.name}}
+        </div>
       </div>
       <div class="main-menu">
         Highlighted portfolio <span class="glyphicon glyphicon-menu-down"></span>
+        <div class="sub-menu">Alibaba</div>
+        <div class="sub-menu">Talkang Insurance</div>
+        <div class="sub-menu">GME Asset</div>
       </div>
       <div class="main-menu">
         File Manager <span class="glyphicon glyphicon-menu-down"></span>
+        <div class="sub-menu">Tax center</div>
+        <div class="sub-menu">Other document</div>
       </div>
     </div>
 
@@ -28,7 +40,7 @@
         <span class="glyphicon glyphicon-align-justify" (click)="toggleSidebar = !toggleSidebar"></span>
       </div>
     </nav>
-  </div>
 
-  <div></div>
+    <app-investor-summary *ngIf="subView=='summary' && fund" fund-id="{{fund.id}}"></app-investor-summary>
+  </div>
 </div>
