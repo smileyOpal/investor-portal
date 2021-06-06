@@ -8,13 +8,15 @@ import {FundListComponent} from './fund-list/fund-list.component';
 import {FormsModule} from "@angular/forms";
 import {PageNotfoundComponent} from './page-notfound/page-notfound.component';
 import {CommonModule} from "@angular/common";
+import { FundDashboardComponent } from './fund-dashboard/fund-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     FundListComponent,
-    PageNotfoundComponent
+    PageNotfoundComponent,
+    FundDashboardComponent
   ],
   imports: [
     BrowserModule,

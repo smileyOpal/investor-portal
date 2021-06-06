@@ -5,7 +5,9 @@
 </div>
 
 <div class="card-container">
-  <div class="card flex-container" *ngFor="let fund of funds">
+  <div class="card flex-container" *ngFor="let fund of funds"
+       routerLink="/dashboard/{{fund.id}}"
+       routerLinkActive="active">
     <div class="flex-item-left">
       <img src="{{fund.logoUrl}}"/>
     </div>
