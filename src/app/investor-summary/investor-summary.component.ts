@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Fund, FundEntity} from "../fund-list/fund";
-import {FUNDS} from "../fund-list/mock-funds";
+import {Investor, FundEntity} from "../fund-list/investor";
+import {INVESTORS} from "../fund-list/mock-funds";
 
 @Component({
   selector: 'app-investor-summary',
@@ -11,16 +11,19 @@ import {FUNDS} from "../fund-list/mock-funds";
 export class InvestorSummaryComponent implements OnInit {
   selectCurrency: string = 'USD';
   selectPeriod: string = 'Q1 2021';
+  aggregatedStartPeriod: string = '2020-12-31';
+  aggregatedEndPeriod: string = '2021-03-31';
   fundId: string | undefined;
-  fundDetail: Fund | undefined;
+  fundDetail: Investor | undefined;
   fundEntries: any[] = [];
+  aggregatedEntries: any[] = [];
 
   constructor() {
   }
 
   ngOnInit(): void {
     if (this.fundId) {
-      this.fundDetail = FUNDS.find(f => f.id == Number(this.fundId));
+      this.fundDetail = INVESTORS.find(f => f.id == Number(this.fundId));
       if (this.fundDetail) {
         for (const module of this.fundDetail.modules) {
           for (const entity of module.entities) {
@@ -34,6 +37,79 @@ export class InvestorSummaryComponent implements OnInit {
               grossMoc: entity.grossMoc.toFixed(1),
               netIrr: entity.netIrr.toFixed(1)
             });
+          }
+        }
+
+        this.updateAggregatedData();
+      }
+    }
+  }
+
+  updateAggregatedPeriod(): void {
+    if (this.selectPeriod == 'Q1 2021') {
+      this.aggregatedStartPeriod = '2020-12-31';
+      this.aggregatedEndPeriod = '2021-03-31';
+    } else if (this.selectPeriod == 'Q2 2021') {
+      this.aggregatedStartPeriod = '2021-03-31';
+      this.aggregatedEndPeriod = '2021-06-30';
+    } else if (this.selectPeriod == 'Q3 2021') {
+      this.aggregatedStartPeriod = '2021-06-30';
+      this.aggregatedEndPeriod = '2021-09-30';
+    } else if (this.selectPeriod == 'Q4 2021') {
+      this.aggregatedStartPeriod = '2021-09-30';
+      this.aggregatedEndPeriod = '2021-12-31';
+    }
+
+    this.updateAggregatedData();
+  }
+
+
+  private aggregatedFields = ['Commitment', 'Contribution', 'Distribution', 'NAV', 'Total invested', 'Total value', 'DPI', 'RVPI', 'TVPI'];
+
+  updateAggregatedData(): void {
+    if (this.fundDetail) {
+      let aggregatedMapEntries = new Map<string, any>();
+      for (const field of this.aggregatedFields) {
+        for (const data of this.fundDetail.aggregatedData) {
+          if (data.type == field) {
+            let entry = aggregatedMapEntries.get(data.type)
+            if (!entry) {
+              entry = {
+                type: field
+              }
+            }
+            if (data.period == this.aggregatedStartPeriod) {
+              entry.previous = data.amount;
+
+            } else if (data.period == this.aggregatedEndPeriod) {
+              entry.current = data.amount;
+            }
+
+            if (entry.previous && entry.current) {
+              entry.diff = entry.current - entry.previous;
+            }
+            aggregatedMapEntries.set(field, entry);
+          }
+        }
+      }
+
+      if (aggregatedMapEntries.size > 0) {
+        for (const field of this.aggregatedFields) {
+          let entry = aggregatedMapEntries.get(field)
+          if (field == 'DPI' || field == 'RVPI' || field == 'TVPI') {
+            this.aggregatedEntries.push({
+              type: field,
+              previous: entry.previous.toFixed(2) + 'x',
+              current: entry.current.toFixed(2) + 'x',
+              diff: (entry.diff >= 0) ? entry.diff.toFixed(2) + 'x' : '(' + entry.diff.toFixed(2) * -1 + ')x',
+            })
+          } else {
+            this.aggregatedEntries.push({
+              type: field,
+              previous: '$' + entry.previous.toFixed(2) + 'm',
+              current: '$' + entry.current.toFixed(2) + 'm',
+              diff: (entry.diff >= 0) ? '$' + entry.diff.toFixed(2) + 'm' : '($' + entry.diff.toFixed(2) * -1 + ')m',
+            })
           }
         }
       }

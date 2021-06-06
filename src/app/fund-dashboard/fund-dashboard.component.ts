@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Fund} from "../fund-list/fund";
-import {FUNDS} from "../fund-list/mock-funds";
+import {Investor} from "../fund-list/investor";
+import {INVESTORS} from "../fund-list/mock-funds";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -10,7 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   inputs: ['id']
 })
 export class FundDashboardComponent implements OnInit {
-  fund: Fund | undefined
+  fund: Investor | undefined
   toggleSidebar = true
   subView = 'summary'
 
@@ -20,7 +20,7 @@ export class FundDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({fundId}) => {
-      this.fund = FUNDS.find(f => f.id == fundId);
+      this.fund = INVESTORS.find(f => f.id == fundId);
 
       if (!this.fund) {
         this.router.navigate(['/notfound']);

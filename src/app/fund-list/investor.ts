@@ -1,8 +1,9 @@
-export interface Fund {
+export interface Investor {
   id: number,
   name: string,
   logoUrl: string,
-  modules: FundModule[]
+  modules: FundModule[],
+  aggregatedData: FundQuarterData[]
 }
 
 export interface FundModule {
@@ -20,4 +21,10 @@ export interface FundEntity {
   fairValue: number,
   grossMoc: number,
   netIrr: number,
+}
+
+export interface FundQuarterData {
+  period: string,
+  type: string,
+  amount: number
 }

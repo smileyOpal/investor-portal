@@ -3,10 +3,10 @@
   <div class="summary-filter-bar">
     <div class="flex-item-left">Asia Alternative Summary</div>
     <div class="flex-item-right">
-      <select (ngModel)="selectCurrency">
+      <select [(ngModel)]="selectCurrency">
         <option>USD</option>
       </select>
-      <select (ngModel)="selectPeriod">
+      <select [(ngModel)]="selectPeriod" (change)="updateAggregatedPeriod()">
         <option>Q1 2021</option>
         <option>Q2 2021</option>
         <option>Q3 2021</option>
@@ -30,9 +30,15 @@
         <table class="aggregated-table">
           <tr>
             <th>USD</th>
-            <th>2020-12-31</th>
-            <th>2020-03-31</th>
+            <th>{{aggregatedStartPeriod}}</th>
+            <th>{{aggregatedEndPeriod}}</th>
             <th>QoQ</th>
+          </tr>
+          <tr *ngFor="let entry of aggregatedEntries">
+            <td>{{entry.type}}</td>
+            <td>{{entry.previous}}</td>
+            <td>{{entry.current}}</td>
+            <td>{{entry.diff}}</td>
           </tr>
         </table>
       </div>

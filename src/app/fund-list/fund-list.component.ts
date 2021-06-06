@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FUNDS} from './mock-funds'
-import {Fund} from "./fund";
+import {INVESTORS} from './mock-funds'
+import {Investor} from "./investor";
 
 @Component({
   selector: 'app-fund-list',
@@ -9,7 +9,7 @@ import {Fund} from "./fund";
 })
 export class FundListComponent implements OnInit {
 
-  funds:Fund[] = FUNDS;
+  funds:Investor[] = INVESTORS;
 
   constructor() {
   }
