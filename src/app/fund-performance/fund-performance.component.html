@@ -8,7 +8,11 @@
   <div class="performance-dashboard-content">
     <!-- graph -->
     <div class="flex-item-left">
-      <div>Deal allocation (number of assets)</div>
+      <div>
+        <div class="flex-item-left">Deal allocation (number of assets)</div>
+        <div class="flex-item-right"></div>
+      </div>
+
       <div></div>
     </div>
 
@@ -22,11 +26,11 @@
   <!-- table -->
   <div class="performance-table-content">
     <div>
-      <div>Asia Alternatives performance by fund</div>
+      <div>Portfolio summary</div>
       <div>Realization and Portfolio Summary in USD Million unless otherwise started</div>
     </div>
     <div>
-      <table class="fund-table">
+      <table class="fund-table" *ngIf="fundDetail">
         <tr>
           <th>Name</th>
           <th>Initial investment</th>
@@ -42,7 +46,20 @@
           <th>Gross IRR</th>
           <th></th>
         </tr>
-        <tr></tr>
+        <tr *ngFor="let portfolio of fundDetail.portfolios">
+          <td>{{portfolio.name}}</td>
+          <td>{{portfolio.initialInvestment}}</td>
+          <td>{{portfolio.mainIndustry}}</td>
+          <td>{{portfolio.commitReserves}}</td>
+          <td>{{portfolio.currentOwnership}}</td>
+          <td>{{portfolio.totalInvestmentCost}}</td>
+          <td>{{portfolio.currentInvestmentCost}}</td>
+          <td>{{portfolio.realized}}</td>
+          <td>{{portfolio.fairMarketValue}}</td>
+          <td>{{portfolio.totalValue}}</td>
+          <td>{{portfolio.multiplesOfCost}}</td>
+          <td>{{portfolio.grossIrr}}</td>
+        </tr>
       </table>
     </div>
   </div>

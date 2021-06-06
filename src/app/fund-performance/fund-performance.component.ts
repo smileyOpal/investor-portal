@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Investor} from "../fund-list/investor";
+import {Component, OnInit} from '@angular/core';
+import {FundDetail, Investor} from "../fund-list/investor";
 import {INVESTORS} from "../fund-list/mock-funds";
 
 @Component({
@@ -12,13 +12,18 @@ export class FundPerformanceComponent implements OnInit {
   fundName: string | undefined;
   investorId: string | undefined;
   investor: Investor | undefined;
-  fundDetail: Investor | undefined;
+  fundDetail: FundDetail | undefined;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     if (this.investorId) {
       this.investor = INVESTORS.find(f => f.id == Number(this.investorId));
+
+      if (this.investor) {
+        this.fundDetail = this.investor.funds.find(p => p.name == this.fundName)
+      }
     }
   }
 
