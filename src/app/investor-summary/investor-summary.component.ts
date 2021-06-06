@@ -22,17 +22,32 @@ export class InvestorSummaryComponent implements OnInit {
     datasets: [
       {
         label: 'USD Fund V',
-        data: [50, 20, 70, 100],
-        backgroundColor: ['#1abc9c', '#1abc9c', '#1abc9c', '#1abc9c']
+        data: [[0,30], [0,20], [10,70], [0,100]],
+        backgroundColor: '#2c2c8f',
+        stack: 'Stack 0'
       },
       {
         label: 'USD Fund VI',
-        data: [50, 0, 60, 60],
-        backgroundColor: ['#db8127', '#db8127', '#db8127', '#db8127']
+        data: [[0,60], [0,0], [0,60], [0,30]],
+        backgroundColor: '#4949ab',
+        stack: 'Stack 0'
       }
     ]
   }
-  valueCreationChartOptions = {responsive: true, maintainAspectRatio: false}
+  valueCreationChartOptions = {
+    responsive: true,
+    interaction: {
+      intersect: false,
+    },
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true
+      }
+    }
+  }
 
   constructor() {
   }
