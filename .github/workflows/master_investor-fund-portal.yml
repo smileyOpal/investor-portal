@@ -51,6 +51,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'investor-fund-portal'
-        slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_2907802f870b46b68ef98d83fbef0151 }}
-        package: .
+        package: ./dist/investor-portal
