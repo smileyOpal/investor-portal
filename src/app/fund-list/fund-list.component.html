@@ -1,1 +1,23 @@
-<p>fund-list works!</p>
+<div class="toolbar">
+  <div class="headline">
+    <span>Welcome to Asia Alternatives to Quantium Investor Portal</span>
+  </div>
+</div>
+
+<div class="card-container">
+  <div class="card flex-container" *ngFor="let fund of funds">
+    <div class="flex-item-left">
+      <img src="{{fund.logoUrl}}"/>
+    </div>
+    <div class="flex-item-right">
+      <div class="fund-name">{{fund.name}}</div>
+      <div class="fund-module" *ngFor="let module of fund.modules">
+        <div class="flex-item-left"
+             [ngStyle]="{'background-color': (module.type=='Reporting') ? '#e6f7ff' : '#ccffe6'}">
+          {{module.type}}
+        </div>
+        <div class="flex-item-right">{{module.description}}</div>
+      </div>
+    </div>
+  </div>
+</div>

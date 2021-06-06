@@ -7,6 +7,7 @@ import {LoginComponent} from './login/login.component';
 import {FundListComponent} from './fund-list/fund-list.component';
 import {FormsModule} from "@angular/forms";
 import {PageNotfoundComponent} from './page-notfound/page-notfound.component';
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {PageNotfoundComponent} from './page-notfound/page-notfound.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

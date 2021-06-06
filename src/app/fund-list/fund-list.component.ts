@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FUNDS} from './mock-funds'
+import {Fund} from "./fund";
 
 @Component({
   selector: 'app-fund-list',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FundListComponent implements OnInit {
 
-  constructor() { }
+  funds = FUNDS;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
