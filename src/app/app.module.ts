@@ -10,6 +10,7 @@ import {PageNotfoundComponent} from './page-notfound/page-notfound.component';
 import {CommonModule} from "@angular/common";
 import { FundDashboardComponent } from './fund-dashboard/fund-dashboard.component';
 import { InvestorSummaryComponent } from './investor-summary/investor-summary.component';
+import { FundPerformanceComponent } from './fund-performance/fund-performance.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { InvestorSummaryComponent } from './investor-summary/investor-summary.co
     FundListComponent,
     PageNotfoundComponent,
     FundDashboardComponent,
-    InvestorSummaryComponent
+    InvestorSummaryComponent,
+    FundPerformanceComponent
   ],
   imports: [
     BrowserModule,
