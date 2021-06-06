@@ -6,15 +6,15 @@ import {INVESTORS} from "../fund-list/mock-funds";
   selector: 'app-investor-summary',
   templateUrl: './investor-summary.component.html',
   styleUrls: ['./investor-summary.component.scss'],
-  inputs: ['fundId: fund-id']
+  inputs: ['investorId: investor-id']
 })
 export class InvestorSummaryComponent implements OnInit {
   selectCurrency: string = 'USD';
   selectPeriod: string = 'Q1 2021';
   aggregatedStartPeriod: string = '2020-12-31';
   aggregatedEndPeriod: string = '2021-03-31';
-  fundId: string | undefined;
-  fundDetail: Investor | undefined;
+  investorId: string | undefined;
+  investor: Investor | undefined;
   fundEntries: any[] = [];
   aggregatedEntries: any[] = [];
 
@@ -22,10 +22,10 @@ export class InvestorSummaryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.fundId) {
-      this.fundDetail = INVESTORS.find(f => f.id == Number(this.fundId));
-      if (this.fundDetail) {
-        for (const module of this.fundDetail.modules) {
+    if (this.investorId) {
+      this.investor = INVESTORS.find(f => f.id == Number(this.investorId));
+      if (this.investor) {
+        for (const module of this.investor.summaryData) {
           for (const entity of module.entities) {
             this.fundEntries.push({
               fund: module.name,
@@ -67,10 +67,10 @@ export class InvestorSummaryComponent implements OnInit {
   private aggregatedFields = ['Commitment', 'Contribution', 'Distribution', 'NAV', 'Total invested', 'Total value', 'DPI', 'RVPI', 'TVPI'];
 
   updateAggregatedData(): void {
-    if (this.fundDetail) {
+    if (this.investor) {
       let aggregatedMapEntries = new Map<string, any>();
       for (const field of this.aggregatedFields) {
-        for (const data of this.fundDetail.aggregatedData) {
+        for (const data of this.investor.aggregatedData) {
           if (data.type == field) {
             let entry = aggregatedMapEntries.get(data.type)
             if (!entry) {

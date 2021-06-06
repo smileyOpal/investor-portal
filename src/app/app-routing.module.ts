@@ -18,8 +18,8 @@ const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'funds', component: FundListComponent},
-  {path: 'dashboard/:id', component: FundDashboardComponent, resolve: {fundId: FundDashboardResolve}},
-  {path: 'dashboard/:id/summary', component: InvestorSummaryComponent, resolve: {fundId: FundDashboardResolve}},
+  {path: 'dashboard/:id', component: FundDashboardComponent, resolve: {investorId: FundDashboardResolve}},
+  {path: 'dashboard/:id/summary', component: InvestorSummaryComponent, resolve: {investorId: FundDashboardResolve}},
   {path: '**', component: PageNotfoundComponent}
 ];
 

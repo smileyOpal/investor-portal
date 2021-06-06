@@ -1,10 +1,10 @@
 <div class="dashboard-container">
   <nav class="side-nav" [ngStyle]="{display: (toggleSidebar) ? 'flex': 'none'}">
-    <div class="fund-logo" *ngIf="fund">
-      <img src="{{fund.logoUrl}}"/>
+    <div class="fund-logo" *ngIf="investor">
+      <img src="{{investor.logoUrl}}"/>
     </div>
 
-    <div class="fund-menu" *ngIf="fund">
+    <div class="fund-menu" *ngIf="investor">
       <div class="main-menu"
            (click)="subView = 'summary'"
            [ngStyle]="{ fontWeight: (subView == 'summary') ? 'bold': 'normal'}">
@@ -13,7 +13,7 @@
       <div class="main-menu">
         Fund performance <span class="glyphicon glyphicon-menu-down"></span>
         <div class="sub-menu"
-             *ngFor="let module of fund.modules"
+             *ngFor="let module of investor.summaryData"
              (click)="subView = module.name"
              [ngStyle]="{ fontWeight: (subView == module.name) ? 'bold': 'normal'}">
           {{module.name}}
@@ -41,6 +41,7 @@
       </div>
     </nav>
 
-    <app-investor-summary *ngIf="subView=='summary' && fund" fund-id="{{fund.id}}"></app-investor-summary>
+    <app-investor-summary *ngIf="subView=='summary' && investor" investor-id="{{investor.id}}"></app-investor-summary>
+    <app-fund-performance *ngIf="subView.indexOf('Fund') > -1 && investor" fund-name="{{subView}}" investor-id="{{investor.id}}"></app-fund-performance>
   </div>
 </div>

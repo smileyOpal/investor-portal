@@ -3,7 +3,8 @@ import {Investor} from "./investor";
 export const INVESTORS: Investor[] = [
   {
     id: 1,
-    name: "GGV Capital Limited", logoUrl: "assets/ggv_logo.png", modules: [
+    abbrev: "GGV",
+    name: "GGV Capital Limited", logoUrl: "assets/ggv_logo.png", summaryData: [
       {
         type: "Reporting", name: "USD Fund V", description: "USD Fund V (Q1 2021)", entities: [
           {
@@ -64,7 +65,8 @@ export const INVESTORS: Investor[] = [
   },
   {
     id: 2,
-    name: "Sequoia Venture Limited", logoUrl: "assets/sv_logo.png", modules: [
+    abbrev: "SV",
+    name: "Sequoia Venture Limited", logoUrl: "assets/sv_logo.png", summaryData: [
       {type: "Fundraising", name: "USD Fund VI", description: "USD Fund VI (First closing)", entities: []}
     ],
     aggregatedData:[]

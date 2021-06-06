@@ -1,1 +1,49 @@
-<p>fund-performance works!</p>
+<div class="performance-container">
+  <!-- filter -->
+  <div class="performance-title-bar" *ngIf="investor">
+    <div>Fund performance: {{investor.abbrev}} {{fundName}}</div>
+  </div>
+
+  <!-- dashboard -->
+  <div class="performance-dashboard-content">
+    <!-- graph -->
+    <div class="flex-item-left">
+      <div>Deal allocation (number of assets)</div>
+      <div></div>
+    </div>
+
+    <!-- aggregated view -->
+    <div class="flex-item-right">
+      <div>Investments by quarter</div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- table -->
+  <div class="performance-table-content">
+    <div>
+      <div>Asia Alternatives performance by fund</div>
+      <div>Realization and Portfolio Summary in USD Million unless otherwise started</div>
+    </div>
+    <div>
+      <table class="fund-table">
+        <tr>
+          <th>Name</th>
+          <th>Initial investment</th>
+          <th>Main industry</th>
+          <th>Commit/Reserves</th>
+          <th>Current ownership</th>
+          <th>Total Investment cost</th>
+          <th>Current Investment cost</th>
+          <th>Realized</th>
+          <th>Fair market value</th>
+          <th>Total value</th>
+          <th>Multiples of cost</th>
+          <th>Gross IRR</th>
+          <th></th>
+        </tr>
+        <tr></tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,12 +1,13 @@
 export interface Investor {
   id: number,
+  abbrev: string,
   name: string,
   logoUrl: string,
-  modules: FundModule[],
+  summaryData: FundSummaryData[],
   aggregatedData: FundQuarterData[]
 }
 
-export interface FundModule {
+export interface FundSummaryData {
   type: string,
   name: string,
   description: string,

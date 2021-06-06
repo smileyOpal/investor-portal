@@ -13,12 +13,12 @@
     </div>
     <div class="flex-item-right">
       <div class="fund-name">{{fund.name}}</div>
-      <div class="fund-module" *ngFor="let module of fund.modules">
+      <div class="fund-module" *ngFor="let data of fund.summaryData">
         <div class="flex-item-left"
-             [ngStyle]="{'background-color': (module.type=='Reporting') ? '#e6f7ff' : '#ccffe6'}">
-          {{module.type}}
+             [ngStyle]="{'background-color': (data.type=='Reporting') ? '#e6f7ff' : '#ccffe6'}">
+          {{data.type}}
         </div>
-        <div class="flex-item-right">{{module.description}}</div>
+        <div class="flex-item-right">{{data.description}}</div>
       </div>
     </div>
   </div>
