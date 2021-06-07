@@ -25,3 +25,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Reference
+Chart library: https://blog.nextzy.me/%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99-chartjs-%E0%B8%9A%E0%B8%99-angular-3f823be4fb69
+Github Workflow deploy to Azure: https://nicolgit.github.io/how-deploy-angular-app-to-azure-appservice-running-linux-from-github/
